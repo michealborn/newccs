@@ -17,7 +17,7 @@ public class WebApplication {
     }
 
     @GetMapping("/hello")
-    public String hello(){
+    public String hello(String userName){
         return "hello";
     }
 }
