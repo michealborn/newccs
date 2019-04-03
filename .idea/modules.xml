@@ -6,7 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/magfin-ccs/magfin-ccs.iml" filepath="$PROJECT_DIR$/magfin-ccs/magfin-ccs.iml" />
       <module fileurl="file://$PROJECT_DIR$/magfin-ccs-core/magfin-ccs-core.iml" filepath="$PROJECT_DIR$/magfin-ccs-core/magfin-ccs-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/magfin-ccs-web/magfin-ccs-web.iml" filepath="$PROJECT_DIR$/magfin-ccs-web/magfin-ccs-web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/newccs.iml" filepath="$PROJECT_DIR$/.idea/newccs.iml" />
     </modules>
   </component>
 </project>
