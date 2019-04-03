@@ -12,7 +12,7 @@ import java.util.Date;
  * @Author zlian
  */
 @Aspect
-@Component
+//@Component
 public class TimeAspect {
     //                                UserController的任何方法，里面有任何参数
     @Around("execution(* zz.demo.controller.UserController.*(..))")

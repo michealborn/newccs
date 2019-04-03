@@ -16,7 +16,7 @@ import java.util.Map;
  */
 
 //只处理controller返回的错误，不处理请求
-@ControllerAdvice
+//@ControllerAdvice
 public class ControllerExceptionHandler {
 
     @ExceptionHandler(UserNotExistException.class)

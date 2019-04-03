@@ -15,7 +15,7 @@ import java.util.List;
  * @Time 2019/4/2
  * @Author zlian
  */
-@RestController
+//@RestController
 public class UserController {
 
     @RequestMapping(value = "/user",method = RequestMethod.GET)
@@ -42,7 +42,7 @@ public class UserController {
     @JsonView(User.UserDetailView.class)
     //通过 @PathVariable 可以将URL中占位符参数{xxx}绑定到处理器类的方法形参中
     public User getInfo(@PathVariable String id){
-        System.out.println("进入getInfo服务");
+        System.out.println("进入getInfo服务,id:"+id);
         User user = new User();
         user.setUserName("micheal");
         return user;

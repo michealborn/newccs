@@ -13,7 +13,7 @@ import java.util.Date;
  * @Time 2019/4/3
  * @Author zlian
  */
-@Component
+//@Component
 public class TimeInterceptor implements HandlerInterceptor {
     @Override
     //方法调用前
