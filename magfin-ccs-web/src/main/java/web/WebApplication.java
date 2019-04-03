@@ -1,4 +1,4 @@
-package zz;
+package web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @Time 2019/4/1
  * @Author zlian
  */
-//@SpringBootApplication
+@SpringBootApplication
 @RestController
-public class BrowserApplication {
+public class WebApplication {
     public static void main(String[] args) {
-        SpringApplication.run(BrowserApplication.class,args);
+        SpringApplication.run(WebApplication.class,args);
     }
 
     @GetMapping("/hello")
