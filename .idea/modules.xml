@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/mafgin-ccs-app/mafgin-ccs-app.iml" filepath="$PROJECT_DIR$/mafgin-ccs-app/mafgin-ccs-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/magfin-ccs/magfin-ccs.iml" filepath="$PROJECT_DIR$/magfin-ccs/magfin-ccs.iml" />
       <module fileurl="file://$PROJECT_DIR$/magfin-ccs-core/magfin-ccs-core.iml" filepath="$PROJECT_DIR$/magfin-ccs-core/magfin-ccs-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/magfin-ccs-web/magfin-ccs-web.iml" filepath="$PROJECT_DIR$/magfin-ccs-web/magfin-ccs-web.iml" />
