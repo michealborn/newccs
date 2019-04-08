@@ -4,6 +4,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/magfin-ccs/pom.xml" />
+        <option value="$PROJECT_DIR$/magfin-ccs-app/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="magfin-ccs-app" />
         <module name="magfin-ccs-core" />
         <module name="magfin-ccs-web" />
       </profile>
@@ -13,6 +14,7 @@
     <bytecodeTargetLevel>
       <module name="mafgin-ccs-app" target="1.5" />
       <module name="magfin-ccs" target="1.5" />
+      <module name="magfin-ccs-app" target="1.5" />
       <module name="magfin-ccs-core" target="1.5" />
       <module name="magfin-ccs-web" target="1.8" />
     </bytecodeTargetLevel>

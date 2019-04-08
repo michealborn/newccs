@@ -41,6 +41,6 @@
     <modules>
         <module>../magfin-ccs-core</module>
         <module>../magfin-ccs-web</module>
-        <module>../mafgin-ccs-app</module>
+        <module>../magfin-ccs-app</module>
     </modules>
 </project>

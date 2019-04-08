@@ -19,4 +19,6 @@
             <version>${magfin.ccs.version}</version>
         </dependency>
     </dependencies>
+
+
 </project>
