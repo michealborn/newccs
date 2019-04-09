@@ -21,9 +21,10 @@ public class SqlSessionConfig {
     public SqlSessionFactoryBean createSqlSessionFactory(){
         SqlSessionFactoryBean sqlSessionFactoryBean = null;
         try{
-
+            sqlSessionFactoryBean = new SqlSessionFactoryBean();
         }catch (Exception e){
-
+            logger.error("创建SqlSession连接工厂错误：{}", e);
         }
+        return sqlSessionFactoryBean;
     }
 }
