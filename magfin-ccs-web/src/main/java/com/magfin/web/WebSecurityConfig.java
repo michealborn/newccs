@@ -25,7 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin()
                 .loginPage("/authentication/require")
-                .loginProcessingUrl("/authentication/form")
+                .loginProcessingUrl("/authentication/form")//让Security知道我现在用自定义请求发起登录
 //        http.httpBasic()
                 .and()
                 .authorizeRequests()//开始对请求做授权
@@ -35,4 +35,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable();
     }
+
+    /**
+
+
+     permitAll                                  永远返回true
+     denyAll                                    永远返回false
+     anonymous                                  当用户是anonymous返回true
+     rememberMe                                 当用户是rememberMe返回true
+     hasRole(role)                              用户拥有指定角色权限时返回true,需要在权限字符串前加"ROLE_"
+     hasAnyRole([role1,role2])                  用户拥有任意一个指定角色权限时返回true,需要在权限字符串前加"ROLE_"
+     hasAuthority(authority)                    用户拥有指定的权限时返回true
+     hasAnyAuthority([authority1,authority2])   用户拥有任意一个指定角色权限时返回true
+
+     连用表达式：access("hasRole('admin') and rememberMe()")
+     **/
 }
