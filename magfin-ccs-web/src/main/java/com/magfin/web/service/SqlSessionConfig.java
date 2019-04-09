@@ -13,7 +13,7 @@ import javax.sql.DataSource;
  * @Time 2019/4/9
  * @Author 佛祖保佑的最
  */
-@Configuration
+//@Configuration
 public class SqlSessionConfig {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
