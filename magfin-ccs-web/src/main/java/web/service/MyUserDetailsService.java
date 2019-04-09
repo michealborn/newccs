@@ -12,6 +12,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import web.dao.UsrUserMapper;
+import web.model.UsrUser;
 
 import java.util.List;
 
@@ -27,11 +29,15 @@ public class MyUserDetailsService implements UserDetailsService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private UsrUserMapper usrUserMapper;
+
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         logger.info("登录名:"+userName);
         List<GrantedAuthority> admin = AuthorityUtils.commaSeparatedStringToAuthorityList("admin");
         //todo 查库
+        UsrUser usrUser = usrUserMapper.selectByPrimaryKey("0009");
         //todo 判断逻辑
         /*
          isEnabled                  账户是否可用
