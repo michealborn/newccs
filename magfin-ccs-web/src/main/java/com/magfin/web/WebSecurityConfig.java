@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
+    //配置密码加解密bean，可写自己的
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
