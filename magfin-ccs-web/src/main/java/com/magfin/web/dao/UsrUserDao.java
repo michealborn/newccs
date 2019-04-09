@@ -1,4 +1,4 @@
-package web.dao;
+package com.magfin.web.dao;
 
 import org.springframework.stereotype.Repository;
 

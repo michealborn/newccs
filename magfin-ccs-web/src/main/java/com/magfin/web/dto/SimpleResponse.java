@@ -1,4 +1,4 @@
-package web.dto;
+package com.magfin.web.dto;
 
 /**
  * @Time 2019/4/4

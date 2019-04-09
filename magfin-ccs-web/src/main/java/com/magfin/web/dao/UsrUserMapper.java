@@ -1,7 +1,7 @@
-package web.dao;
+package com.magfin.web.dao;
 
 import org.springframework.stereotype.Repository;
-import web.model.UsrUser;
+import com.magfin.web.model.UsrUser;
 
 @Repository
 public interface UsrUserMapper {

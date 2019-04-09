@@ -1,4 +1,4 @@
-package web;
+package com.magfin.web;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

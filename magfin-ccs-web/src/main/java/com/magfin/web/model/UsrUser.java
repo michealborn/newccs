@@ -1,4 +1,4 @@
-package web.model;
+package com.magfin.web.model;
 
 import java.math.BigDecimal;
 

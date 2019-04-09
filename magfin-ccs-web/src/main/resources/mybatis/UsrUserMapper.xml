@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="web.dao.UsrUserMapper">
-  <resultMap id="BaseResultMap" type="web.model.UsrUser">
+<mapper namespace="com.magfin.web.dao.UsrUserMapper">
+  <resultMap id="BaseResultMap" type="com.magfin.web.model.UsrUser">
     <id column="user_code" jdbcType="VARCHAR" property="userCode" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -20,13 +20,13 @@
     delete from usr_user
     where user_code = #{userCode,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="web.model.UsrUser">
+  <insert id="insert" parameterType="com.magfin.web.model.UsrUser">
     insert into usr_user (user_code, user_name, password, 
       money-test)
     values (#{userCode,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{moneyTest,jdbcType=DECIMAL})
   </insert>
-  <insert id="insertSelective" parameterType="web.model.UsrUser">
+  <insert id="insertSelective" parameterType="com.magfin.web.model.UsrUser">
     insert into usr_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userCode != null">
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="web.model.UsrUser">
+  <update id="updateByPrimaryKeySelective" parameterType="com.magfin.web.model.UsrUser">
     update usr_user
     <set>
       <if test="userName != null">
@@ -72,7 +72,7 @@
     </set>
     where user_code = #{userCode,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="web.model.UsrUser">
+  <update id="updateByPrimaryKey" parameterType="com.magfin.web.model.UsrUser">
     update usr_user
     set user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

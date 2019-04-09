@@ -1,4 +1,4 @@
-package web.controller;
+package com.magfin.web.controller;
 
 import org.apache.commons.lang.StringUtils;
 import org.aspectj.weaver.ast.Var;
@@ -13,7 +13,7 @@ import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import web.dto.SimpleResponse;
+import com.magfin.web.dto.SimpleResponse;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

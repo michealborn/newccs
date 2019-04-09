@@ -1,4 +1,4 @@
-package web.service;
+package com.magfin.web.service;
 
 import org.aspectj.lang.annotation.Around;
 import org.slf4j.Logger;
@@ -12,8 +12,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import web.dao.UsrUserMapper;
-import web.model.UsrUser;
+import com.magfin.web.dao.UsrUserMapper;
+import com.magfin.web.model.UsrUser;
 
 import java.util.List;
 
