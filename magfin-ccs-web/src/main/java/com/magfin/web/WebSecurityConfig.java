@@ -24,12 +24,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin()
-                .loginPage("/authentication/require")
-                .loginProcessingUrl("/authentication/form")//让Security知道我现在用自定义请求发起登录
+                .loginPage("/login.html")
+                .loginProcessingUrl("/signIn")//让Security知道我现在用自定义请求发起登录
 //        http.httpBasic()
                 .and()
                 .authorizeRequests()//开始对请求做授权
-                .antMatchers("/authentication/require","/sign.html").permitAll()
+                .antMatchers("/login.html").permitAll()
                 .anyRequest()//任何请求
                 .authenticated()//都需要身份认证
                 .and()
