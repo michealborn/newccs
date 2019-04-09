@@ -5,10 +5,10 @@
     <id column="user_code" jdbcType="VARCHAR" property="userCode" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="money-test" jdbcType="DECIMAL" property="moneyTest" />
+    <result column="money_test" jdbcType="DECIMAL" property="moneyTest" />
   </resultMap>
   <sql id="Base_Column_List">
-    user_code, user_name, password, money-test
+    user_code, user_name, password, money_test
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -22,7 +22,7 @@
   </delete>
   <insert id="insert" parameterType="com.magfin.web.model.UsrUser">
     insert into usr_user (user_code, user_name, password, 
-      money-test)
+      money_test)
     values (#{userCode,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{moneyTest,jdbcType=DECIMAL})
   </insert>
@@ -39,7 +39,7 @@
         password,
       </if>
       <if test="moneyTest != null">
-        money-test,
+        money_test,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -67,7 +67,7 @@
         password = #{password,jdbcType=VARCHAR},
       </if>
       <if test="moneyTest != null">
-        money-test = #{moneyTest,jdbcType=DECIMAL},
+        money_test = #{moneyTest,jdbcType=DECIMAL},
       </if>
     </set>
     where user_code = #{userCode,jdbcType=VARCHAR}
@@ -76,7 +76,7 @@
     update usr_user
     set user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
-      money-test = #{moneyTest,jdbcType=DECIMAL}
+      money_test = #{moneyTest,jdbcType=DECIMAL}
     where user_code = #{userCode,jdbcType=VARCHAR}
   </update>
 </mapper>
