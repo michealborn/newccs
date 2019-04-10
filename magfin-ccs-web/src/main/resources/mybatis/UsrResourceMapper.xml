@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.magfin.web.dao.UsrResourceMapper" >
+  <resultMap id="BaseResultMap" type="com.magfin.web.model.UsrResource" >
+    <id column="res_code" property="resCode" jdbcType="VARCHAR" />
+    <result column="res_name" property="resName" jdbcType="VARCHAR" />
+    <result column="res_url" property="resUrl" jdbcType="VARCHAR" />
+    <result column="parent_res_code" property="parentResCode" jdbcType="VARCHAR" />
+    <result column="res_type" property="resType" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    res_code, res_name, res_url, parent_res_code, res_type
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from usr_resource
+    where res_code = #{resCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from usr_resource
+    where res_code = #{resCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.magfin.web.model.UsrResource" >
+    insert into usr_resource (res_code, res_name, res_url, 
+      parent_res_code, res_type)
+    values (#{resCode,jdbcType=VARCHAR}, #{resName,jdbcType=VARCHAR}, #{resUrl,jdbcType=VARCHAR}, 
+      #{parentResCode,jdbcType=VARCHAR}, #{resType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.magfin.web.model.UsrResource" >
+    insert into usr_resource
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="resCode != null" >
+        res_code,
+      </if>
+      <if test="resName != null" >
+        res_name,
+      </if>
+      <if test="resUrl != null" >
+        res_url,
+      </if>
+      <if test="parentResCode != null" >
+        parent_res_code,
+      </if>
+      <if test="resType != null" >
+        res_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="resCode != null" >
+        #{resCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resName != null" >
+        #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="resUrl != null" >
+        #{resUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="parentResCode != null" >
+        #{parentResCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resType != null" >
+        #{resType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.magfin.web.model.UsrResource" >
+    update usr_resource
+    <set >
+      <if test="resName != null" >
+        res_name = #{resName,jdbcType=VARCHAR},
+      </if>
+      <if test="resUrl != null" >
+        res_url = #{resUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="parentResCode != null" >
+        parent_res_code = #{parentResCode,jdbcType=VARCHAR},
+      </if>
+      <if test="resType != null" >
+        res_type = #{resType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where res_code = #{resCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.magfin.web.model.UsrResource" >
+    update usr_resource
+    set res_name = #{resName,jdbcType=VARCHAR},
+      res_url = #{resUrl,jdbcType=VARCHAR},
+      parent_res_code = #{parentResCode,jdbcType=VARCHAR},
+      res_type = #{resType,jdbcType=VARCHAR}
+    where res_code = #{resCode,jdbcType=VARCHAR}
+  </update>
+
+  <select id="queryListByObject" resultType="com.magfin.web.model.UsrResource" parameterType="com.magfin.web.model.UsrResource">
+    select
+    <include refid="Base_Column_List" />
+    from usr_resource
+    <where>
+      <if test="resType!=null and resType!=''">
+        res_type = #{resType}
+      </if>
+    </where>
+  </select>
+</mapper>

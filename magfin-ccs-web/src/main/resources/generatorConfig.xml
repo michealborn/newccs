@@ -5,7 +5,7 @@
 <generatorConfiguration>
 
     <classPathEntry
-            location="C:\Users\zlian\.m2\repository\mysql\mysql-connector-java\5.1.43\mysql-connector-java-5.1.43.jar"/>
+            location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\5.1.43\mysql-connector-java-5.1.43.jar"/>
 
 
     <!-- add admin modules in this context!  -->
@@ -24,7 +24,7 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!-- 生成实体类的包名和位置 注意targetProject的值为实体类放在工程中具体位置的相对路径，-->
-        <javaModelGenerator targetPackage="web.model"
+        <javaModelGenerator targetPackage="com.magfin.web.model"
                             targetProject="src/main/java">
             <!-- 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] -->
             <property name="enableSubPackages" value="true"/>
@@ -41,7 +41,7 @@
 
         <!-- 生成DAO的包名和位置，这里配置将生成的dao类放在me.gacl.dao这个包下 -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="web.dao" targetProject="src/main/java">
+                             targetPackage="com.magfin.web.dao" targetProject="src/main/java">
             <!-- 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] -->
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
@@ -50,8 +50,8 @@
         <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample
                 是否生成 example类   -->
         <!-- 更改tableName和domainObjectName就可以 -->
-        <table schema="newccs" tableName="usr_user"
-               domainObjectName="UsrUser" enableCountByExample="false"
+        <table schema="newccs" tableName="usr_resource"
+               domainObjectName="UsrResource" enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false">
         </table>

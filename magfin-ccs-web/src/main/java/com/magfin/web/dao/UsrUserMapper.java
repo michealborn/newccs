@@ -3,7 +3,7 @@ package com.magfin.web.dao;
 import com.magfin.web.model.UsrUser;
 import org.springframework.stereotype.Repository;
 
-@Repository
+
 public interface UsrUserMapper {
     int deleteByPrimaryKey(String userCode);
 
