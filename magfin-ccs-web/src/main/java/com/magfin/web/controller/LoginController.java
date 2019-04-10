@@ -45,7 +45,6 @@ public class LoginController {
         List<UsrResource> usrResources = usrResourceService.queryListByObject(usrResource);
         ModelAndView modelAndView = new ModelAndView();
         model.addAttribute("resourceList",usrResources);
-        model.addAttribute("flag","123");
-        return new ModelAndView("/index");
+        return new ModelAndView("/shouye");
     }
 }

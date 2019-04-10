@@ -26,7 +26,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin()
                 .loginPage("/login.html")
                 .loginProcessingUrl("/signIn")//让Security知道我现在用自定义请求发起登录
-//        http.httpBasic()
                 .and()
                 .authorizeRequests()//开始对请求做授权
                 .antMatchers("/login.html").permitAll()
