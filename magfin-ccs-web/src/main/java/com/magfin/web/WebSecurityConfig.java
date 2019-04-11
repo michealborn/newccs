@@ -41,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureForwardUrl("/")
                     .and()
                 .authorizeRequests()//开始对请求做授权
-                .antMatchers("/login.html").permitAll()
+                .antMatchers("/signIn").permitAll()
                 .anyRequest()//任何请求
                 .authenticated()//都需要身份认证
                     .and()

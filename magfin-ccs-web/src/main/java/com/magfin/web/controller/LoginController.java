@@ -69,9 +69,9 @@ public class LoginController {
     public ModelAndView signIn(Model model,HttpServletRequest request){
         UsrResource usrResource = new UsrResource();
         usrResource.setResType("1");
-        List<UsrResource> usrResources = usrResourceService.queryListByObject(usrResource);
+//        List<UsrResource> usrResources = usrResourceService.queryListByObject(usrResource);
         ModelAndView modelAndView = new ModelAndView();
-        model.addAttribute("resourceList",usrResources);
+//        model.addAttribute("resourceList",usrResources);
         return new ModelAndView("/shouye");
     }
 }
