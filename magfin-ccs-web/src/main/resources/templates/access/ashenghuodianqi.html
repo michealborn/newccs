@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<!--<span th:text="${context}" sec.authorize access="hasRole('ROLE_ADMIN')">
+
+</span>-->
+
+<div sec:authorize access="hasAuthority('ADMIN')">
+    ADMIN
+</div>
+
+<div sec:authorize="hasAuthority('ROOT')">
+    ROOT
+</div>
+
+</body>
+</html>

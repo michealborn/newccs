@@ -34,7 +34,7 @@ public class LoginService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         logger.info("登录名:"+userName);
-        List<GrantedAuthority> admin = AuthorityUtils.commaSeparatedStringToAuthorityList("admin");
+        List<GrantedAuthority> admin = AuthorityUtils.commaSeparatedStringToAuthorityList("ADMIN");
         UsrUser usrUser = usrUserMapper.selectByPrimaryKey(userName);
         String passWord = passwordEncoder.encode(usrUser.getPassword());
         //判断逻辑
