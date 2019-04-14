@@ -8,13 +8,23 @@
 </head>
 <body>
 
-<!--<span th:text="${context}" sec.authorize access="hasRole('ROLE_ADMIN')">
+<span th:text="${context}"/>
+<span th:text="${zhanshi1}"/>
+<span th:if="${accessOk}">
+2222
+</span>
 
-</span>-->
+<!--<div sec:authentication = "name" >-->
+<!--此处将显示身份验证对象的“name”属性的值。-->
+<!--</div >-->
 
-<div sec:authorize access="hasAuthority('ADMIN')">
+<!--<sec:authorize access="@roleService.hasPermission()">
     ADMIN
-</div>
+</sec:authorize>-->
+
+<!--<sec:authorize access="hasAuthority('ADMIN')">-->
+<!--ADMIN2-->
+<!--</sec:authorize>-->
 
 <div sec:authorize="hasAuthority('ROOT')">
     ROOT

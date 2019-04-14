@@ -2,6 +2,7 @@ package com.magfin.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,7 +20,9 @@ public class AccessController {
     public ModelAndView shenghuodianqi(Model model, HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView();
         model.addAttribute("context","生活电器");
-        return new ModelAndView("/access/ashenghuodianqi");
+        ModelMap modelMap = new ModelMap();
+        modelMap.addAttribute("zhanshi1","zhanshi1");
+        return new ModelAndView("/access/ashenghuodianqi",modelMap);
     }
 
     @RequestMapping("/gerenhuli")
