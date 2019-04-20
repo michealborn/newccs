@@ -1,35 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE project [
-        <!ELEMENT project (modelVersion|artifactId|parent|packaging|dependencies|build)*>
-        <!ATTLIST project
-                xmlns CDATA #REQUIRED
-                xmlns:xsi CDATA #REQUIRED
-                xsi:schemaLocation CDATA #REQUIRED>
-        <!ELEMENT modelVersion (#PCDATA)>
-        <!ELEMENT artifactId (#PCDATA)>
-        <!ELEMENT parent (groupId|artifactId|version|relativePath)*>
-        <!ELEMENT groupId (#PCDATA)>
-        <!ELEMENT version (#PCDATA)>
-        <!ELEMENT relativePath (#PCDATA)>
-        <!ELEMENT packaging (#PCDATA)>
-        <!ELEMENT dependencies (dependency)*>
-        <!ELEMENT dependency (groupId|artifactId|version)*>
-        <!ELEMENT build (plugins|finalName)*>
-        <!ELEMENT plugins (plugin)*>
-        <!ELEMENT plugin (groupId|artifactId|version|executions|configuration|dependencies)*>
-        <!ELEMENT executions (execution)*>
-        <!ELEMENT execution (goals|id)*>
-        <!ELEMENT goals (goal)*>
-        <!ELEMENT goal (#PCDATA)>
-        <!ELEMENT configuration (source|target|configurationFile|verbose|overwrite)*>
-        <!ELEMENT source (#PCDATA)>
-        <!ELEMENT target (#PCDATA)>
-        <!ELEMENT configurationFile (#PCDATA)>
-        <!ELEMENT verbose (#PCDATA)>
-        <!ELEMENT overwrite (#PCDATA)>
-        <!ELEMENT id (#PCDATA)>
-        <!ELEMENT finalName (#PCDATA)>
-        ]>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -60,6 +29,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
         </dependency>
         <!-- thmeleaf 标签依赖 -->
         <dependency>
