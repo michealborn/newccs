@@ -5,6 +5,8 @@ import org.activiti.engine.ProcessEngines;
 import org.activiti.engine.repository.*;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.runtime.ProcessInstanceQuery;
+import org.activiti.engine.task.Task;
+import org.activiti.engine.task.TaskQuery;
 import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,10 +25,10 @@ import java.util.zip.ZipInputStream;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ActivityApiTest {
-    ProcessEngine defaultProcessEngine = null;
+    ProcessEngine processEngine = null;
     @Before
     public void before(){
-        defaultProcessEngine = ProcessEngines.getDefaultProcessEngine();
+        processEngine = ProcessEngines.getDefaultProcessEngine();
     }
     /**
      * 部署流程定义
@@ -35,7 +37,7 @@ public class ActivityApiTest {
      */
     @Test
     public void test1(){
-        DeploymentBuilder deployment = defaultProcessEngine.getRepositoryService().createDeployment();
+        DeploymentBuilder deployment = processEngine.getRepositoryService().createDeployment();
         //方式一：读取单个的流程定义文件
 //        deployment.addClasspathResource("processes/firstProcess.bpmn");
 //        deployment.addClasspathResource("processes/firstProcess.png");
@@ -54,7 +56,7 @@ public class ActivityApiTest {
     @Test
     public void test2(){
         //部署查询对象，查询表ACT_RE_DEPLOYMENT
-        DeploymentQuery deploymentQuery = defaultProcessEngine.getRepositoryService().createDeploymentQuery();
+        DeploymentQuery deploymentQuery = processEngine.getRepositoryService().createDeploymentQuery();
         for(Deployment d :deploymentQuery.list()){
             System.out.println(d.getId());
         }
@@ -67,7 +69,7 @@ public class ActivityApiTest {
      */
     @Test
     public void test3(){
-        ProcessDefinitionQuery processDefinitionQuery = defaultProcessEngine.getRepositoryService().createProcessDefinitionQuery();
+        ProcessDefinitionQuery processDefinitionQuery = processEngine.getRepositoryService().createProcessDefinitionQuery();
         List<ProcessDefinition> list = processDefinitionQuery.list();
         for(ProcessDefinition p:list){
             System.out.println(p.getName());
@@ -82,9 +84,9 @@ public class ActivityApiTest {
     public void test4(){
         String deploymentId = "1";
         //简单的流程部署删除
-        defaultProcessEngine.getRepositoryService().deleteDeployment(deploymentId);
+        processEngine.getRepositoryService().deleteDeployment(deploymentId);
         //级联删除，如果该流程有在途流程，上面的删除会报错，下面的会全删了
-        defaultProcessEngine.getRepositoryService().deleteDeployment(deploymentId,true);
+        processEngine.getRepositoryService().deleteDeployment(deploymentId,true);
     }
 
     /**
@@ -120,7 +122,7 @@ public class ActivityApiTest {
             in.close();
         }*/
         /*获取图片文件,传入的是流程定义的ID*/
-        InputStream processDiagram = defaultProcessEngine.getRepositoryService().getProcessDiagram("qjlc:7:27505");
+        InputStream processDiagram = processEngine.getRepositoryService().getProcessDiagram("qjlc:7:27505");
         FileUtils.copyInputStreamToFile(processDiagram,new File("D:\\activity,chongxiangmengxiangjiaoyu\\my.png"));
     }
 
@@ -136,7 +138,7 @@ public class ActivityApiTest {
 //        ProcessInstance processInstance = defaultProcessEngine.getRuntimeService().startProcessInstanceById("qjlc:7:27505");
 //        System.out.println(processInstance.getId());
         //根据流程定义的key启动
-        ProcessInstance qjlc = defaultProcessEngine.getRuntimeService().startProcessInstanceByKey("qjlc");
+        ProcessInstance qjlc = processEngine.getRuntimeService().startProcessInstanceByKey("qjlc");
         System.out.println(qjlc.getId());
     }
 
@@ -145,25 +147,61 @@ public class ActivityApiTest {
      */
     @Test
     public void test8(){
-        ProcessInstanceQuery processInstanceQuery = defaultProcessEngine.getRuntimeService().createProcessInstanceQuery();
-
+        ProcessInstanceQuery processInstanceQuery = processEngine.getRuntimeService().createProcessInstanceQuery();
+        List<ProcessInstance> list = processInstanceQuery.list();
+        for(ProcessInstance pi:list){
+            System.out.println(pi.getId());
+            System.out.println(pi.getActivityId());//act_id
+        }
     }
 
     /**
-     * 结束流程实例 (拒绝)
+     * 结束流程实例 (拒绝) 流程实例表ACT_RU_EXECUTION和流程任务表ACT_RU_TASK
      */
+    @Test
+    public void test9(){
+        String processInstanceId="30007";
+        String deleteReason="测试拒绝流程1";
+        processEngine.getRuntimeService().deleteProcessInstance(processInstanceId,deleteReason);
+    }
+
+
 
     /**
      * 查询任务列表
      */
+    @Test
+    public void test10(){
+        TaskQuery taskQuery = processEngine.getTaskService().createTaskQuery();
+        taskQuery.taskAssignee("lisi");
+        List<Task> list = taskQuery.list();
+        for(Task t:list){
+            //任务id
+            System.out.println("====="+t.getId());
+        }
+    }
+
 
     /**
      * 办理任务
      */
+    @Test
+    public void test11(){
+        processEngine.getTaskService().complete("37502");
+
+    }
 
 
     /**
      * 直接将流程向下执行一步
      */
+    @Test
+    public void test12(){
+        String signalName = "经理审批";
+        String executionId = "35002";
+//        processEngine.getRuntimeService().signalEventReceived();
+
+    }
+
 
 }
