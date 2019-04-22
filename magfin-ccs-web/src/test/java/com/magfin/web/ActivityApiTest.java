@@ -41,15 +41,15 @@ public class ActivityApiTest {
     public void test1(){
         DeploymentBuilder deployment = processEngine.getRepositoryService().createDeployment();
         //方式一：读取单个的流程定义文件
-//        deployment.addClasspathResource("processes/firstProcess.bpmn");
-//        deployment.addClasspathResource("processes/firstProcess.png");
-//        Deployment deploy = deployment.deploy();
+        deployment.addClasspathResource("processes/firstProcess.bpmn");
+        deployment.addClasspathResource("processes/firstProcess.png");
+        Deployment deploy = deployment.deploy();
         //方式二：读取zip压缩文件
-        ZipInputStream zipInputStream = new ZipInputStream(this.getClass()
+        /*ZipInputStream zipInputStream = new ZipInputStream(this.getClass()
                 .getClassLoader().getResourceAsStream("processes/processes.zip"));
         deployment.addZipInputStream(zipInputStream);
         deployment.name("请假流程部署");
-        Deployment deploy = deployment.deploy();
+        Deployment deploy = deployment.deploy();*/
     }
 
     /**
@@ -189,7 +189,7 @@ public class ActivityApiTest {
      */
     @Test
     public void test11(){
-        processEngine.getTaskService().complete("37502");
+        processEngine.getTaskService().complete("15002");
 
     }
 
