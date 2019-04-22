@@ -15,7 +15,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.zip.ZipInputStream;
 
 /**
@@ -202,6 +204,26 @@ public class ActivityApiTest {
 //        processEngine.getRuntimeService().signalEventReceived();
 
     }
+    /**
+     * 查询最新版本的流程定义列表
+     */
+    @Test
+    public void test13(){
+        ProcessDefinitionQuery query = processEngine.getRepositoryService().createProcessDefinitionQuery();
+        query.orderByProcessDefinitionVersion().asc();
+        List<ProcessDefinition> list = query.list();
+        Map<String,ProcessDefinition> map = new HashMap<>();
+        for (ProcessDefinition pd : list) {
+            map.put(pd.getKey(),pd);
+        }
+    }
+    /**
+     * RepositoryService -- 操作静态资源（流程定义，bpmn，png）
+     * RuntimeService -- 操作流程实例（启动流程实例，查询流程实例，结束流程实例）
+     * TaskService -- 操作任务（查询任务，办理任务）
+     * HistoryService -- 操作历史数据
+     */
+
 
 
 }
