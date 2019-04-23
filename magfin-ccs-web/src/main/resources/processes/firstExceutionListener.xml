@@ -6,7 +6,11 @@
         <activiti:executionListener class="com.magfin.web.com.activiti.listener.execution.StartExecutionListener" event="start"/>
       </extensionElements>
     </startEvent>
-    <userTask activiti:assignee="张三" activiti:exclusive="true" id="_3" name="申请"/>
+    <userTask activiti:assignee="张三" activiti:exclusive="true" id="_3" name="申请">
+      <extensionElements>
+        <activiti:taskListener class="com.magfin.web.com.activiti.listener.task.CreateTaskListener" event="create"/>
+      </extensionElements>
+    </userTask>
     <userTask activiti:assignee="李四" activiti:exclusive="true" id="_4" name="审批"/>
     <endEvent id="_5" name="EndEvent">
       <extensionElements>
