@@ -50,8 +50,8 @@ public class GateWayTest {
         System.out.println(paitagateway.getId());
     }
 
-
     /**
+
      * 办理任务，设置流程变量
      */
     @Test
@@ -59,5 +59,35 @@ public class GateWayTest {
         Map<String, Object> variables = new HashMap<>();
         variables.put("bxje",800);
         processEngine.getTaskService().complete("72504",variables);
+    }
+
+
+    /**
+     * 部署带有并行网关的流程
+     */
+    @Test
+    public void test4(){
+        DeploymentBuilder deployment = processEngine.getRepositoryService().createDeployment();
+        //方式一：读取单个的流程定义文件
+        deployment.addClasspathResource("processes/BingXingGateWay.bpmn");
+        deployment.addClasspathResource("processes/BingXingGateWay.png");
+        Deployment deploy = deployment.deploy();
+    }
+
+    /**
+     * 启动流程
+     */
+    @Test
+    public void test5(){
+        ProcessInstance bingxinggateway = processEngine.getRuntimeService().startProcessInstanceByKey("bingxinggateway");
+        System.out.println(bingxinggateway.getId());
+    }
+
+    /**
+     * 办理任务
+     */
+    @Test
+    public void test6(){
+        processEngine.getTaskService().complete("85002");
     }
 }
