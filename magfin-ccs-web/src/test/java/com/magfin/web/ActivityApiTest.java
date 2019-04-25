@@ -1,5 +1,6 @@
 package com.magfin.web;
 
+import com.magfin.web.com.activiti.spring.ChangeNode;
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngines;
 import org.activiti.engine.repository.*;
@@ -124,8 +125,8 @@ public class ActivityApiTest {
             in.close();
         }*/
         /*获取图片文件,传入的是流程定义的ID*/
-        InputStream processDiagram = processEngine.getRepositoryService().getProcessDiagram("qjlc:7:27505");
-        FileUtils.copyInputStreamToFile(processDiagram,new File("D:\\activity,chongxiangmengxiangjiaoyu\\my.png"));
+        InputStream processDiagram = processEngine.getRepositoryService().getProcessDiagram("ywsq:1:4");
+        FileUtils.copyInputStreamToFile(processDiagram,new File("D:\\my.png"));
     }
 
 
@@ -189,8 +190,7 @@ public class ActivityApiTest {
      */
     @Test
     public void test11(){
-        processEngine.getTaskService().complete("15002");
-
+        processEngine.getTaskService().complete("12502");
     }
 
 
@@ -204,6 +204,7 @@ public class ActivityApiTest {
 //        processEngine.getRuntimeService().signalEventReceived();
 
     }
+
     /**
      * 查询最新版本的流程定义列表
      */
@@ -217,6 +218,7 @@ public class ActivityApiTest {
             map.put(pd.getKey(),pd);
         }
     }
+
     /**
      * RepositoryService -- 操作静态资源（流程定义，bpmn，png）
      * RuntimeService -- 操作流程实例（启动流程实例，查询流程实例，结束流程实例）
@@ -224,6 +226,18 @@ public class ActivityApiTest {
      * HistoryService -- 操作历史数据
      */
 
+
+
+    /**
+     * 流程跳跃
+     */
+    @Test
+    public void test14(){
+        String taskId = "10002";
+        String activityId = "user2";
+        Map<String, Object> variables = new HashMap<>();
+        ChangeNode.turnTransition(taskId,activityId,variables);
+    }
 
 
 }
