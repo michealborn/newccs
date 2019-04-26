@@ -41,8 +41,8 @@ public class ActivityApiTest {
     public void test1(){
         DeploymentBuilder deployment = processEngine.getRepositoryService().createDeployment();
         //方式一：读取单个的流程定义文件
-        deployment.addClasspathResource("processes/firstProcess.bpmn");
-        deployment.addClasspathResource("processes/firstProcess.png");
+        deployment.addClasspathResource("processes/ywsq.bpmn");
+        deployment.addClasspathResource("processes/ywsq.png");
         Deployment deploy = deployment.deploy();
         //方式二：读取zip压缩文件
         /*ZipInputStream zipInputStream = new ZipInputStream(this.getClass()
@@ -140,8 +140,8 @@ public class ActivityApiTest {
 //        ProcessInstance processInstance = defaultProcessEngine.getRuntimeService().startProcessInstanceById("qjlc:7:27505");
 //        System.out.println(processInstance.getId());
         //根据流程定义的key启动
-        ProcessInstance qjlc = processEngine.getRuntimeService().startProcessInstanceByKey("qjlc");
-        System.out.println(qjlc.getId());
+        ProcessInstance ywsq = processEngine.getRuntimeService().startProcessInstanceByKey("ywsq");
+        System.out.println(ywsq.getId());
     }
 
     /**
@@ -189,7 +189,7 @@ public class ActivityApiTest {
      */
     @Test
     public void test11(){
-        processEngine.getTaskService().complete("15002");
+        processEngine.getTaskService().complete("2504");
 
     }
 
