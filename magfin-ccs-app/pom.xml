@@ -18,6 +18,19 @@
             <artifactId>magfin-ccs-core</artifactId>
             <version>${magfin.ccs.version}</version>
         </dependency>
+
+
+        <!-- thmeleaf 标签依赖 -->
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf</artifactId>
+            <version>3.0.9.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring4</artifactId>
+            <version>3.0.9.RELEASE</version>
+        </dependency>
     </dependencies>
 
 
